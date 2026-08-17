@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 // MUI5
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -40,6 +40,6 @@ const Index = () => {
 };
 
 if (document.getElementById("root")) {
-  const root = ReactDOM.createRoot(document.getElementById("root"));
+  const root = createRoot(document.getElementById("root"));
   root.render(<Index />);
 }
