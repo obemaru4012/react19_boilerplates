@@ -1,0 +1,45 @@
+import React from "react";
+import ReactDOM from "react-dom";
+// MUI5
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+import CssBaseline from "@mui/material/CssBaseline";
+import Container from "@mui/material/Container";
+import { ThemeProvider } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
+// Hooks
+import usePageState from "@app/pages/index/hooks/usePageState";
+// Theme
+import CustomTheme from "@app/themes/CustomTheme";
+// Contents
+import Contents from "@app/pages/index/contents/Contents";
+
+const Index = () => {
+  const propsContainer = document.getElementById("root");
+  const props = Object.assign({}, propsContainer.dataset);
+
+  // Hooks
+  const state = usePageState({ props: props });
+
+  // テーマ読み込み
+  const customTheme = CustomTheme();
+
+  // 画面幅が "md"（800px以上）なら true、それ未満なら false
+  const isMediumUp = useMediaQuery(customTheme.breakpoints.up("md"));
+
+  return (
+    <React.Fragment>
+      <ThemeProvider theme={customTheme}>
+        <CssBaseline />
+        <Container maxWidth={false} disableGutters={false}>
+          <Contents state={state} />
+        </Container>
+      </ThemeProvider>
+    </React.Fragment>
+  );
+};
+
+if (document.getElementById("root")) {
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<Index />);
+}
