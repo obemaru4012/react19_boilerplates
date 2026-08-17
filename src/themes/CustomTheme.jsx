@@ -4,15 +4,16 @@ import { createTheme } from "@mui/material/styles";
 /**
  * CustomTheme
  *
+ * @param {"light" | "dark"} mode
  * @returns {import("@mui/material/styles").Theme} theme
  */
-const CustomTheme = () => {
+const CustomTheme = (mode = "light") => {
   // 画面幅が "lg"（1280px以上）なら true、それ未満なら false
   // const isLargeUp = useMediaQuery(customTheme.breakpoints.up("lg"));
 
   const themeCustom = createTheme({
     palette: {
-      mode: "light"
+      mode
     },
     breakpoints: {
       values: {

@@ -22,7 +22,7 @@ const Index = () => {
   const state = usePageState({ props: props });
 
   // テーマ読み込み
-  const customTheme = CustomTheme();
+  const customTheme = CustomTheme(state.mode);
 
   // 画面幅が "md"（800px以上）なら true、それ未満なら false
   const isMediumUp = useMediaQuery(customTheme.breakpoints.up("md"));
@@ -31,7 +31,7 @@ const Index = () => {
     <React.Fragment>
       <ThemeProvider theme={customTheme}>
         <CssBaseline />
-        <Container maxWidth={false} disableGutters={false}>
+        <Container maxWidth={false} disableGutters={true}>
           <Contents state={state} />
         </Container>
       </ThemeProvider>
