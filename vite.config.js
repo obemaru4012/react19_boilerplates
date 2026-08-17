@@ -22,9 +22,6 @@ export default defineConfig({
     outDir: "../distributions", // ビルドされたjsファイルが格納される場所
     rollupOptions: {
       input: entries, // for build
-      // input: {
-      //   '': resolve(__dirname, 'src/index.html'), // for dev
-      // },
       output: {
         // ファイル名ハッシュを辞めるオプション
         entryFileNames: `assets/[name].js`,
