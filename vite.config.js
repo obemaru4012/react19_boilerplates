@@ -1,8 +1,7 @@
-import { resolve } from "path";
+import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-const path = require("path");
-const app = require("./build_target/app.js");
+import app from "./build_target/app.js";
 
 var entries = { ...app };
 
